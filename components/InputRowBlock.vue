@@ -25,6 +25,7 @@
     </div>
     <!-- Range Slider  -->
     <range-slider
+      v-if="hasSlider"
       v-model.lazy="sliderModal"
       class="slider"
       :min="min"
@@ -71,8 +72,13 @@ export default {
     initValue: {
       type: Number,
       required: false,
-      default: 0
-    }
+      default: 0,
+    },
+    hasSlider: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -99,9 +105,8 @@ export default {
         this.sliderModal = val
       },
       deep: true,
-      immediate: true
-    }
+      immediate: true,
+    },
   },
-
 }
 </script>
