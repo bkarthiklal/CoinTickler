@@ -7,7 +7,7 @@ export default {
     chartData: {
       type: Object,
       required: true,
-      default: null
+      default: null,
     },
     options: {
       type: Object,
@@ -18,14 +18,21 @@ export default {
           maintainAspectRatio: false,
           animation: {
             animateRotate: true,
-          }
+          },
         }
-      }
-
+      },
     },
   },
-  mounted () {
+  watch: {
+    chartData: {
+      handler() {
+        this.renderChart(this.chartData, this.options)
+      },
+      deep: true,
+    },
+  },
+  mounted() {
     this.renderChart(this.chartData, this.options)
-  }
+  },
 }
 </script>
