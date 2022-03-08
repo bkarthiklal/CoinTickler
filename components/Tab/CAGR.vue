@@ -117,7 +117,6 @@ export default {
         datasets: [
           {
             data: [this.investedAmount, this.profitEarned],
-            backgroundColor: ['#5D8BF4', '#00C897'],
             hoverOffset: 4,
           },
         ],

@@ -107,7 +107,6 @@ export default {
         datasets: [
           {
             data: [this.currentValue, this.inflationAmount],
-            backgroundColor: ['#5D8BF4', '#00C897'],
             hoverOffset: 4,
           },
         ],

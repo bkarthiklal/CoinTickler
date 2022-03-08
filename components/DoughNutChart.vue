@@ -1,5 +1,6 @@
 <script>
 import { Doughnut } from 'vue-chartjs'
+import exportedVars from '@/scss/_variables.scss'
 
 export default {
   extends: Doughnut,
@@ -23,16 +24,24 @@ export default {
       },
     },
   },
+  computed: {
+    formattedChartData() {
+      const { chartPrimary, chartSecondary } = exportedVars
+      const chartData = this.chartData
+      chartData.datasets[0].backgroundColor = [chartPrimary, chartSecondary]
+      return chartData
+    },
+  },
   watch: {
-    chartData: {
+    formattedChartData: {
       handler() {
-        this.renderChart(this.chartData, this.options)
+        this.renderChart(this.formattedChartData, this.options)
       },
       deep: true,
     },
   },
   mounted() {
-    this.renderChart(this.chartData, this.options)
+    this.renderChart(this.formattedChartData, this.options)
   },
 }
 </script>
