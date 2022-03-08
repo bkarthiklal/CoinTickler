@@ -3,6 +3,10 @@ $rail-fill-color: #00d09c !default;
 $knob-color: #fff !default;
 $knob-size: 20px;
 
+$primary-color: #00d09c !default;
+$text-color: #44475b !default;
+$bg-color: #e5faf5 !default;
+
 @import '~vue-range-slider/dist/vue-range-slider.scss';
 
 .slider {
@@ -19,11 +23,11 @@ $knob-size: 20px;
 
   .app-container {
     .app-title {
-      color: rgb(68, 71, 91);
+      color: $text-color;
       letter-spacing: 0.28px;
       font: 500 28px / 44.8px Roboto, system-ui;
       margin: 10px 0px;
-      outline: rgb(68, 71, 91) none 0px;
+      outline: $text-color none 0px;
     } /*.app-title*/
 
     .tabs {
@@ -52,45 +56,34 @@ $knob-size: 20px;
 
         .nav-link {
           border: none;
-          &:hove{
+          &:hove {
             border: none;
-          }/*.nav-link:hover*/
-          &.active{
-            block-size: 40px;
-            border-block-end-color: rgb(68, 71, 91);
-            border-block-start-color: rgb(68, 71, 91);
+          } /*.nav-link:hover*/
+          &.active {
             border-end-end-radius: 20px;
             border-end-start-radius: 20px;
-            border-inline-end-color: rgb(68, 71, 91);
-            border-inline-start-color: rgb(68, 71, 91);
             border-start-end-radius: 20px;
             border-start-start-radius: 20px;
             bottom: 0px;
-            box-sizing: border-box;
-            caret-color: rgb(68, 71, 91);
-            color: rgb(68, 71, 91);
-            column-rule-color: rgb(68, 71, 91);
-            background: rgb(229, 250, 245) none repeat scroll 0% 0% / auto padding-box
+            background: $bg-color none repeat scroll 0% 0% / auto padding-box
               border-box;
-            caret-color: rgb(0, 208, 156);
-            color: rgb(0, 208, 156) !important;
-            column-rule-color: rgb(0, 208, 156);
+            caret-color: $primary-color;
+            color: $primary-color !important;
+            column-rule-color: $primary-color;
             cursor: pointer;
-            text-decoration: none solid rgb(0, 208, 156);
-            text-emphasis-color: rgb(0, 208, 156);
-          }/*.nav-link.active*/
-        }/*.nav-link*/
-      }/*.nav-tabs*/
+          }
+          /*.nav-link.active*/
+        } /*.nav-link*/
+      } /*.nav-tabs*/
 
       .tab-content {
-
         .tab-contents-block {
           display: flex;
-        }/*.tab-contents-block*/
+        } /*.tab-contents-block*/
 
         .tab-pane {
-          padding-top: 20px
-        }/*.tab-pane*/
+          padding-top: 20px;
+        } /*.tab-pane*/
 
         .row-block {
           height: 90px;
@@ -105,54 +98,52 @@ $knob-size: 20px;
               display: flex;
               height: 5vh;
               width: 140.25px;
-            }/*.label*/
+            } /*.label*/
             .field {
               .input {
                 align-items: center;
                 display: flex;
-                background: #e5faf5 none repeat scroll 0% 0% / auto padding-box
-                  border-box;
+                background: $bg-color none repeat scroll 0% 0% / auto
+                  padding-box border-box;
                 padding: 0px 3px;
                 .currency,
                 .percent,
                 .year {
                   padding: 0px 0px 0px 3px;
-                  color: #00d09c;
+                  color: $primary-color;
                 }
                 .input-field {
-                  color: #00d09c;
+                  color: $primary-color;
                   width: 99.2031px;
                   text-align: right;
-                  background: #e5faf5 none repeat scroll 0% 0% / auto padding-box
-                    border-box;
-                  border: 0px none #00d09c;
-                  font: 500 18px Roboto, system-ui, -apple-system, Segoe UI, Roboto,
-                    Ubuntu, Cantarell, Noto Sans, sans-serif;
-                  outline: #00d09c none 0px;
+                  background: $bg-color none repeat scroll 0% 0% / auto
+                    padding-box border-box;
+                  border: 0px none $primary-color;
+                  font: 500 18px Roboto, system-ui, -apple-system, Segoe UI,
+                    Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+                  outline: $primary-color none 0px;
                   &:focus-visible {
-                    border: 0px none #00d09c;
+                    border: 0px none $primary-color;
                   }
                 }
-              }/*.input*/
-            }/*.field*/
-          }/*.input-block*/
-        }/*.row-block*/
-
-      }/*.tab-content*/
-
+              } /*.input*/
+            } /*.field*/
+          } /*.input-block*/
+        } /*.row-block*/
+      } /*.tab-content*/
     } /*.tabs*/
 
     .result-block {
       padding: 2em;
 
-      .result-row{
+      .result-row {
         align-items: center;
         display: flex;
         justify-content: space-between;
         margin: 0px 0px 20px;
 
         .result-label {
-          color: rgb(124, 126, 140);
+          color: $text-color;
           letter-spacing: 0.14px;
         } /*.result-label*/
 
@@ -160,8 +151,6 @@ $knob-size: 20px;
           font: 500 16px / 25.6px Roboto, system-ui;
         } /*result-value*/
       } /*.result-row*/
-
     } /*.result-block*/
-
   } /*#app-container*/
-}/*.root_template*/
+} /*.root_template*/
