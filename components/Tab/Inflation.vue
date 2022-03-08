@@ -72,10 +72,15 @@ export default {
     },
     finalValue() {
       const { currentValue, inflationRate, timePeriod } = this.fields
-      return this.calculateResult(currentValue, inflationRate, timePeriod)
+      const result = this.calculateResult(
+        currentValue,
+        inflationRate,
+        timePeriod
+      )
+      return parseInt(result)
     },
     inflationAmount() {
-      return this.finalValue - this.currentValue
+      return parseInt(this.finalValue - this.currentValue)
     },
     results() {
       return [
