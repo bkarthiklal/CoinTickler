@@ -1,0 +1,24 @@
+$primary-color: #00d09c !default;
+$text-color: #44475b !default;
+$bg-color: #e5faf5 !default;
+
+$chart-primary: $primary-color !default;
+$chart-secondary: $bg-color !default;
+
+$rail-color: $bg-color !default;
+$rail-fill-color: $text-color !default;
+$knob-color: $primary-color !default;
+$knob-size: 20px;
+
+:export {
+  primaryColor: $primary-color;
+  textColor: $text-color;
+  secondaryColor: $bg-color;
+  chartPrimary: $chart-primary;
+  chartSecondary: $chart-secondary;
+  railColor: $rail-color;
+  railFillColor: $rail-fill-color;
+  knobColor: $knob-color;
+  knobSize: $knob-size;
+  bgColor: $bg-color;
+}

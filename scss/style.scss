@@ -1,12 +1,4 @@
-$rail-color: #e2e2e2 !default;
-$rail-fill-color: #00d09c !default;
-$knob-color: #fff !default;
-$knob-size: 20px;
-
-$primary-color: #00d09c !default;
-$text-color: #44475b !default;
-$bg-color: #e5faf5 !default;
-
+@import '_variables';
 @import '~vue-range-slider/dist/vue-range-slider.scss';
 
 .slider {
