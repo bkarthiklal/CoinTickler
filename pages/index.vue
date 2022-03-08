@@ -19,7 +19,9 @@
           </keep-alive>
         </b-tab>
         <b-tab title="Inflation">
-          <b-alert show>Inflation</b-alert>
+          <keep-alive>
+            <TabInflation />
+          </keep-alive>
         </b-tab>
         <b-tab title="Deflation">
           <b-alert show>Deflation</b-alert>
