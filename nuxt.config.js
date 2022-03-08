@@ -41,7 +41,9 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://firebase.nuxtjs.org/
-    '@nuxtjs/firebase'
+    '@nuxtjs/firebase',
+    //https://github.com/nuxt-community/robots-module#readme
+    '@nuxtjs/robots',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
