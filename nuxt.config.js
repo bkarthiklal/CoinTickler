@@ -40,6 +40,8 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://firebase.nuxtjs.org/
+    '@nuxtjs/firebase'
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -47,6 +49,24 @@ export default {
     manifest: {
       lang: 'en',
     },
+  },
+
+  // Firebase Options : https://firebase.nuxtjs.org/guide/options
+  firebase: {
+    config:  {
+      apiKey: "AIzaSyAKiWRQOBVZp2hTfz_RzK2TsbeE8vxRejA",
+      authDomain: "investmentcalculator-deb92.firebaseapp.com",
+      projectId: "investmentcalculator-deb92",
+      storageBucket: "investmentcalculator-deb92.appspot.com",
+      messagingSenderId: "859788277327",
+      appId: "1:859788277327:web:b26a7f63f72c7e64d3dc3a",
+      measurementId: "G-CNWKH0ZJ21"
+    },
+    services: {
+      analytics: true,
+    },
+    onFirebaseHosting: true,
+    lazy: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
