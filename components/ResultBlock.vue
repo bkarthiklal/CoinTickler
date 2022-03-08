@@ -28,6 +28,12 @@ export default {
       })
       return formatter.format(value).slice(0, -3)
     },
+    percentage(value) {
+      if (typeof value !== 'number') {
+        return value
+      }
+      return `${parseFloat(value).toFixed(2)} %`
+    },
   },
   props: {
     resultData: {

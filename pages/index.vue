@@ -29,7 +29,9 @@
           </keep-alive>
         </b-tab>
         <b-tab title="CARG">
-          <b-alert show>CARG</b-alert>
+          <keep-alive>
+            <TabCAGR />
+          </keep-alive>
         </b-tab>
       </b-tabs>
     </div>
