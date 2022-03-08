@@ -13,7 +13,7 @@
       <!-- Chart Section -->
       <DoughNutChart :chart-data="chartData" :styles="doughnutStyle" />
       <!-- Results Section  -->
-      <ResultBlock v-bind="sipResults" />
+      <ResultBlock :result-data="sipResults" />
     </div>
   </div>
 </template>
@@ -64,25 +64,41 @@ export default {
       }
     },
     investedAmount() {
-      return this.fields.monthlyInvestment * 12 * this.fields.timePeriod
+      return parseInt(
+        this.fields.monthlyInvestment * 12 * this.fields.timePeriod
+      )
     },
     expectedReturns() {
-      return this.totalReturns - this.investedAmount
+      return parseInt(this.totalReturns - this.investedAmount)
     },
     totalReturns() {
       const { monthlyInvestment, expectedReturnRate, timePeriod } = this.fields
-      return this.calculateResult(
-        monthlyInvestment,
-        expectedReturnRate,
-        timePeriod
+      return parseInt(
+        this.calculateResult(
+          monthlyInvestment,
+          expectedReturnRate,
+          timePeriod
+        ) || '0'
       )
     },
     sipResults() {
-      return {
-        investedAmount: this.investedAmount,
-        expectedReturns: this.expectedReturns,
-        totalValue: this.totalReturns,
-      }
+      return [
+        {
+          label: 'Invested amount',
+          value: this.investedAmount,
+          type: 'currency',
+        },
+        {
+          label: 'Expected returns',
+          value: this.expectedReturns,
+          type: 'currency',
+        },
+        {
+          label: 'Total value',
+          value: this.totalReturns,
+          type: 'currency',
+        },
+      ]
     },
     chartData() {
       return {
