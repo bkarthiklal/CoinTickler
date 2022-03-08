@@ -10,7 +10,7 @@
             <span>₹</span>
           </span>
           <input
-            v-model.lazy="sliderModal"
+            v-model.number.lazy="sliderModal"
             class="input-field"
             type="number"
             maxlength="250"
