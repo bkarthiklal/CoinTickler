@@ -114,7 +114,7 @@ export default {
     },
   },
   methods: {
-    calculateResult(monthlyInvestment, expectedReturnRate, timePeriod) {
+    sipReturns(monthlyInvestment, expectedReturnRate, timePeriod) {
       /**
        * Logic Formula
        * M is the amount you receive upon maturity.
@@ -133,6 +133,50 @@ export default {
       const n = timePeriod * 12
       const M = P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i)
       return M
+    },
+    lumpSumReturns(investmentAmount, expectedReturnRate, timePeriod) {
+      /**
+       * Logic Flow : Compound Interest Formula
+       * A = P (1 + r/n) ^ nt
+       * Where:
+       * A = Future Value of Investments/Loan (Amount)
+       * P = Principal investment amount (the initial deposit or loan amount)
+       * r = Interest Rate
+       * n = Number of times that Interest is Compounded
+       * t = Tenure of the investment (Time) or the number of periods the money is invested or borrowed
+       */
+      const P = investmentAmount
+      const r = expectedReturnRate / 100
+      const n = 1
+      const t = timePeriod
+      const A = P * Math.pow(1 + r / n, n * t)
+      return A
+    },
+    calculateResult(monthlyInvestment, expectedReturnRate, timePeriod) {
+      return this.sipReturns(monthlyInvestment, expectedReturnRate, timePeriod)
+    },
+    stepUpSipReturns(
+      monthlyInvestment,
+      expectedReturnRate,
+      timePeriod,
+      annualIncrement
+    ) {
+      let netReturns = 0
+      let netInvested = 0
+      let updatedMonthly = monthlyInvestment
+      for (let i = 1; i <= timePeriod; i++) {
+        const sipAmount = updatedMonthly
+        const OneYearReturns = this.sipReturns(sipAmount, expectedReturnRate, 1)
+        const nYearReturns = this.lumpSumReturns(
+          OneYearReturns,
+          expectedReturnRate,
+          timePeriod - i
+        )
+        netInvested += sipAmount * 12
+        netReturns += nYearReturns
+        updatedMonthly = updatedMonthly * (1 + annualIncrement / 100)
+      }
+      return { netReturns, netInvested }
     },
   },
 }
