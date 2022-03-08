@@ -83,9 +83,15 @@ $knob-size: 20px;
       }/*.nav-tabs*/
 
       .tab-content {
+
+        .tab-contents-block {
+          display: flex;
+        }/*.tab-contents-block*/
+
         .tab-pane {
           padding-top: 20px
         }/*.tab-pane*/
+
         .row-block {
           height: 90px;
           margin: 0px 0px 32px;
@@ -131,6 +137,7 @@ $knob-size: 20px;
             }/*.field*/
           }/*.input-block*/
         }/*.row-block*/
+
       }/*.tab-content*/
 
     } /*.tabs*/
