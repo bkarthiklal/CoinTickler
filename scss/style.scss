@@ -568,7 +568,6 @@
   cursor: pointer;
   display: flex;
   height: 35px;
-  inline-size: 112.563px;
   letter-spacing: 0.16px;
   margin-inline-end: 10px;
   min-block-size: auto;
@@ -582,12 +581,11 @@
   text-emphasis-color: rgb(124, 126, 140);
   transform-origin: 56.2813px 17.5px;
   user-select: none;
-  width: 112.563px;
   border: 0px none rgb(124, 126, 140);
   font: 500 16px / 25.6px Roboto, system-ui;
   margin: 0px 10px 0px 0px;
   outline: rgb(124, 126, 140) none 0px;
-  padding: 0px 20px;
+  padding: 0px 12px;
 } /*#DIV_9*/
 
 #DIV_9:after {
@@ -7966,3 +7964,28 @@
   font: 16px Roboto, system-ui;
   outline: rgb(68, 71, 91) none 0px;
 } /*#TD_262:before, #TD_276:before*/
+
+.tabActive {
+  block-size: 35px;
+  border-block-end-color: rgb(68, 71, 91);
+  border-block-start-color: rgb(68, 71, 91);
+  border-end-end-radius: 20px;
+  border-end-start-radius: 20px;
+  border-inline-end-color: rgb(68, 71, 91);
+  border-inline-start-color: rgb(68, 71, 91);
+  border-start-end-radius: 20px;
+  border-start-start-radius: 20px;
+  bottom: 0px;
+  box-sizing: border-box;
+  caret-color: rgb(68, 71, 91);
+  color: rgb(68, 71, 91);
+  column-rule-color: rgb(68, 71, 91);
+  background: rgb(229, 250, 245) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  caret-color: rgb(0, 208, 156);
+  color: rgb(0, 208, 156) !important;
+  column-rule-color: rgb(0, 208, 156);
+  cursor: pointer;
+  text-decoration: none solid rgb(0, 208, 156);
+  text-emphasis-color: rgb(0, 208, 156);
+}

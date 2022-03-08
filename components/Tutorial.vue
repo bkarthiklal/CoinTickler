@@ -11,15 +11,18 @@
       sm:items-center sm:pt-0
     "
   >
-    <div id="DIV_1">
+    <div id="DIV_1" class="center-align">
       <h1 id="H1_2">SIP Calculator</h1>
       <div id="DIV_3">
         <div id="DIV_4">
           <div id="DIV_5">
-            <div id="DIV_6"></div>
             <div id="DIV_7">
-              <div id="DIV_8">SIP</div>
-              <div id="DIV_9">Lumpsum</div>
+              <div id="DIV_9">SIP</div>
+              <div id="DIV_9" class="tabActive">Lumpsum</div>
+              <div id="DIV_9">StepUp Sip</div>
+              <div id="DIV_9">Inflation</div>
+              <div id="DIV_9">Deflation</div>
+              <div id="DIV_9">CARG</div>
             </div>
           </div>
         </div>
@@ -113,13 +116,13 @@
               </div>
               <div id="DIV_68">
                 <div id="DIV_69">
-                  <div id="DIV_70">
+                  <!-- <div id="DIV_70">
                     <div id="DIV_71">
                       <span id="SPAN_72"
                         ><span id="SPAN_73">INVEST NOW</span></span
                       >
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
