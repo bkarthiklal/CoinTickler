@@ -24,7 +24,9 @@
           </keep-alive>
         </b-tab>
         <b-tab title="Deflation">
-          <b-alert show>Deflation</b-alert>
+          <keep-alive>
+            <TabDeflation />
+          </keep-alive>
         </b-tab>
         <b-tab title="CARG">
           <b-alert show>CARG</b-alert>
