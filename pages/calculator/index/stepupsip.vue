@@ -49,18 +49,31 @@ export default {
     }
   },
   computed: {
+    expectedReturnRate() {
+      const { expectedReturnRate } = this.fields
+      if (this.inflationAdjusted) {
+        return expectedReturnRate - 6
+      }
+      return expectedReturnRate
+    },
+    monthlyInvestment() {
+      const { monthlyInvestment } = this.fields
+      return monthlyInvestment
+    },
+    timePeriod() {
+      const { timePeriod } = this.fields
+      return timePeriod
+    },
+    annualIncrement() {
+      const { annualIncrement } = this.fields
+      return annualIncrement
+    },
     investedAmount() {
-      const {
-        monthlyInvestment,
-        expectedReturnRate,
-        timePeriod,
-        annualIncrement,
-      } = this.fields
       const { netInvested } = this.stepUpSipReturns(
-        monthlyInvestment,
-        expectedReturnRate,
-        timePeriod,
-        annualIncrement
+        this.monthlyInvestment,
+        this.expectedReturnRate,
+        this.timePeriod,
+        this.annualIncrement
       )
       return parseInt(netInvested)
     },
@@ -68,18 +81,12 @@ export default {
       return parseInt(this.totalReturns - this.investedAmount)
     },
     totalReturns() {
-      const {
-        monthlyInvestment,
-        expectedReturnRate,
-        timePeriod,
-        annualIncrement,
-      } = this.fields
       return parseInt(
         this.calculateResult(
-          monthlyInvestment,
-          expectedReturnRate,
-          timePeriod,
-          annualIncrement
+          this.monthlyInvestment,
+          this.expectedReturnRate,
+          this.timePeriod,
+          this.annualIncrement
         )
       )
     },

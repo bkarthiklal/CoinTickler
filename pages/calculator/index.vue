@@ -1,9 +1,20 @@
 <template>
   <div class="root_template">
     <div class="app-container">
-      <nuxt-link to="/" tag="h1" class="app-title">
-        Investment Calculator
-      </nuxt-link>
+      <div class="app-title-container">
+        <nuxt-link to="/" tag="h1" class="app-title">
+          Investment Calculator
+        </nuxt-link>
+        <b-form-checkbox
+          v-if="showInflationAdjuster"
+          v-model="adjustForInflation"
+          name="check-button"
+          switch
+          button-variant="warning"
+        >
+          <strong> Inflation Adjusted </strong>
+        </b-form-checkbox>
+      </div>
       <div class="tabs">
         <ul class="nav nav-tabs">
           <nuxt-link
@@ -11,7 +22,7 @@
             :key="index"
             :to="route.path"
             tag="li"
-            class="nav-link"
+            class="nav-item nav-link"
           >
             <span>
               {{ route.name }}
@@ -19,7 +30,7 @@
           </nuxt-link>
         </ul>
         <div class="tab-content">
-          <nuxt-child />
+          <nuxt-child :inflation-adjusted="adjustForInflation" />
         </div>
       </div>
     </div>
@@ -56,7 +67,19 @@ export default {
           name: 'CAGR',
         },
       ],
+      adjustForInflation: false,
     }
+  },
+  computed: {
+    showInflationAdjuster() {
+      const { name } = this.$route
+      const acceptedList = [
+        'calculator-index-stepupsip',
+        'calculator-index-lumpsum',
+        'calculator-index-sip',
+      ]
+      return acceptedList.includes(name)
+    },
   },
 }
 </script>

@@ -1,6 +1,12 @@
 @import '_variables';
 @import '~vue-range-slider/dist/vue-range-slider.scss';
 
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: rgb(0, 0, 0);
+  border-color: $primary-color;
+  background-color: $primary-color;
+}
+
 .slider {
   /* overwrite slider styles */
   padding: 0 10px;
@@ -14,6 +20,11 @@
   justify-content: center;
 
   .app-container {
+    .app-title-container {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
     .app-title {
       color: $text-color;
       letter-spacing: 0.28px;

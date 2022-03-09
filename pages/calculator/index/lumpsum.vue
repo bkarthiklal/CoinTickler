@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     investedAmount() {
-      return parseInt(this.fields.monthlyInvestment)
+      return parseInt(this.monthlyInvestment)
     },
   },
   methods: {

@@ -21,6 +21,12 @@
 <script>
 export default {
   name: 'SipCalculator',
+  props: {
+    inflationAdjusted: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       inputFields: [
@@ -63,21 +69,33 @@ export default {
         maxHeight: '40vh',
       }
     },
+    expectedReturnRate() {
+      const { expectedReturnRate } = this.fields
+      if (this.inflationAdjusted) {
+        return expectedReturnRate - 6
+      }
+      return expectedReturnRate
+    },
+    monthlyInvestment() {
+      const { monthlyInvestment } = this.fields
+      return monthlyInvestment
+    },
+    timePeriod() {
+      const { timePeriod } = this.fields
+      return timePeriod
+    },
     investedAmount() {
-      return parseInt(
-        this.fields.monthlyInvestment * 12 * this.fields.timePeriod
-      )
+      return parseInt(this.monthlyInvestment * 12 * this.timePeriod)
     },
     expectedReturns() {
       return parseInt(this.totalReturns - this.investedAmount)
     },
     totalReturns() {
-      const { monthlyInvestment, expectedReturnRate, timePeriod } = this.fields
       return parseInt(
         this.calculateResult(
-          monthlyInvestment,
-          expectedReturnRate,
-          timePeriod
+          this.monthlyInvestment,
+          this.expectedReturnRate,
+          this.timePeriod
         ) || '0'
       )
     },
