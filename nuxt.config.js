@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'investment-calc',
+    title: 'Investment Calculator',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,7 +42,7 @@ export default {
     '@nuxtjs/pwa',
     // https://firebase.nuxtjs.org/
     '@nuxtjs/firebase',
-    //https://github.com/nuxt-community/robots-module#readme
+    // https://github.com/nuxt-community/robots-module#readme
     '@nuxtjs/robots',
   ],
 
@@ -55,20 +55,20 @@ export default {
 
   // Firebase Options : https://firebase.nuxtjs.org/guide/options
   firebase: {
-    config:  {
-      apiKey: "AIzaSyAKiWRQOBVZp2hTfz_RzK2TsbeE8vxRejA",
-      authDomain: "investmentcalculator-deb92.firebaseapp.com",
-      projectId: "investmentcalculator-deb92",
-      storageBucket: "investmentcalculator-deb92.appspot.com",
-      messagingSenderId: "859788277327",
-      appId: "1:859788277327:web:b26a7f63f72c7e64d3dc3a",
-      measurementId: "G-CNWKH0ZJ21"
+    config: {
+      apiKey: 'AIzaSyAKiWRQOBVZp2hTfz_RzK2TsbeE8vxRejA',
+      authDomain: 'investmentcalculator-deb92.firebaseapp.com',
+      projectId: 'investmentcalculator-deb92',
+      storageBucket: 'investmentcalculator-deb92.appspot.com',
+      messagingSenderId: '859788277327',
+      appId: '1:859788277327:web:b26a7f63f72c7e64d3dc3a',
+      measurementId: 'G-CNWKH0ZJ21',
     },
     services: {
       analytics: true,
     },
     onFirebaseHosting: true,
-    lazy: true
+    lazy: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
