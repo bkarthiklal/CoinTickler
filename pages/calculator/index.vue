@@ -22,36 +22,6 @@
           <nuxt-child />
         </div>
       </div>
-      <b-tabs content-class="mt-3" lazy fill>
-        <b-tab title="SIP">
-          <NuxtChild></NuxtChild>
-        </b-tab>
-        <b-tab title="Lumpsum">
-          <keep-alive>
-            <TabLumpSum />
-          </keep-alive>
-        </b-tab>
-        <b-tab title="Step Up Sip">
-          <keep-alive>
-            <TabStepUpSip />
-          </keep-alive>
-        </b-tab>
-        <b-tab title="Inflation">
-          <keep-alive>
-            <TabInflation />
-          </keep-alive>
-        </b-tab>
-        <b-tab title="Deflation">
-          <keep-alive>
-            <TabDeflation />
-          </keep-alive>
-        </b-tab>
-        <b-tab title="CARG">
-          <keep-alive>
-            <TabCAGR />
-          </keep-alive>
-        </b-tab>
-      </b-tabs>
     </div>
   </div>
 </template>
