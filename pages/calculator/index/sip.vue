@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'SipTab',
+  name: 'SipCalculator',
   data() {
     return {
       inputFields: [

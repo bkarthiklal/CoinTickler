@@ -1,6 +1,7 @@
 <script>
-import Sip from './Sip.vue'
+import Sip from './sip.vue'
 export default {
+  name: 'LumpSumCalculator',
   extends: Sip,
   data() {
     return {

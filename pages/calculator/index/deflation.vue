@@ -20,26 +20,26 @@
 
 <script>
 export default {
-  name: 'InflationTab',
+  name: 'DeflationCalculator',
   data() {
     return {
       inputFields: [
         {
-          label: 'Invested Amount',
+          label: 'Current Value',
           min: 1000,
           max: 10000000,
           step: 1000,
           inputType: 'currency',
-          modelName: 'investedAmount',
+          modelName: 'currentValue',
           hasSlider: false,
         },
         {
-          label: 'Total Returns',
-          min: 1000,
-          max: 10000000,
-          step: 1000,
-          inputType: 'currency',
-          modelName: 'totalReturns',
+          label: 'Inflation rate (p.a)',
+          min: 1,
+          max: 100,
+          step: 1,
+          inputType: 'percentage',
+          modelName: 'inflationRate',
           hasSlider: false,
         },
         {
@@ -53,9 +53,9 @@ export default {
         },
       ],
       fields: {
-        investedAmount: 1000,
-        totalReturns: 1500,
-        timePeriod: 10,
+        currentValue: 1000,
+        inflationRate: 6,
+        timePeriod: 15,
       },
     }
   },
@@ -66,57 +66,47 @@ export default {
         maxHeight: '40vh',
       }
     },
-    investedAmount() {
-      const { investedAmount } = this.fields
-      return investedAmount
+    currentValue() {
+      const { currentValue } = this.fields
+      return currentValue
     },
-    totalReturns() {
-      const { totalReturns } = this.fields
-      return totalReturns
-    },
-    cargValue() {
-      const { investedAmount, totalReturns, timePeriod } = this.fields
+    finalValue() {
+      const { currentValue, inflationRate, timePeriod } = this.fields
       const result = this.calculateResult(
-        investedAmount,
-        totalReturns,
+        currentValue,
+        inflationRate,
         timePeriod
       )
-      return parseFloat(result)
+      return parseInt(result)
     },
-    profitEarned() {
-      const { investedAmount, totalReturns } = this.fields
-      return parseInt(totalReturns - investedAmount)
+    inflationAmount() {
+      return parseInt(this.finalValue - this.currentValue)
     },
     results() {
       return [
         {
-          label: 'Invested Amount',
-          value: this.investedAmount,
+          label: 'Current Value',
+          value: this.currentValue,
           type: 'currency',
         },
         {
-          label: 'Return Earned',
-          value: this.profitEarned,
+          label: 'Deflation Amount',
+          value: this.inflationAmount,
           type: 'currency',
         },
         {
-          label: 'Total Returns',
-          value: this.totalReturns,
+          label: 'Future worth',
+          value: this.finalValue,
           type: 'currency',
-        },
-        {
-          label: 'CARG',
-          value: this.cargValue,
-          type: 'percentage',
         },
       ]
     },
     chartData() {
       return {
-        labels: ['Invested Amount', 'Return Earned'],
+        labels: ['Future Value', 'Deflated Amount'],
         datasets: [
           {
-            data: [this.investedAmount, this.profitEarned],
+            data: [this.finalValue, this.inflationAmount],
             hoverOffset: 4,
           },
         ],
@@ -124,8 +114,8 @@ export default {
     },
   },
   methods: {
-    calculateResult(investedAmount, totalReturns, timePeriod) {
-      return ((totalReturns / investedAmount) ** (1 / timePeriod) - 1) * 100
+    calculateResult(currentValue, inflationRate, timePeriod) {
+      return currentValue * (1 - inflationRate / 100) ** timePeriod
     },
   },
 }

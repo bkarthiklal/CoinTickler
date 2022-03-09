@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'InflationTab',
+  name: 'InflationCalculator',
   data() {
     return {
       inputFields: [

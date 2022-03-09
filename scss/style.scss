@@ -18,18 +18,23 @@
       color: $text-color;
       letter-spacing: 0.28px;
       font: 500 28px / 44.8px Roboto, system-ui;
-      margin: 10px 0px;
+      margin: 20px 0px;
       outline: $text-color none 0px;
+      cursor: pointer;
     } /*.app-title*/
 
     .tabs {
       width: 60vw;
-      border: 1px solid rgb(236, 237, 239);
+      border: 1px solid $border-color;
       border-radius: 10px;
       font: 16px Roboto, system-ui;
       padding: 30px 0px 0px;
 
       .nav-tabs {
+        justify-content: space-between;
+        margin: 1em;
+        border: none;
+        height: 2.5em;
         .nav-item {
           a {
             align-items: center;
@@ -48,10 +53,14 @@
 
         .nav-link {
           border: none;
+          cursor: pointer;
+          color: $secondary-color;
           &:hove {
             border: none;
+            color: $primary-color;
           } /*.nav-link:hover*/
-          &.active {
+          &.active,
+          &.nuxt-link-exact-active {
             border-end-end-radius: 20px;
             border-end-start-radius: 20px;
             border-start-end-radius: 20px;
@@ -69,6 +78,7 @@
       } /*.nav-tabs*/
 
       .tab-content {
+        border-top: 1px solid $border-color;
         .tab-contents-block {
           display: flex;
         } /*.tab-contents-block*/
