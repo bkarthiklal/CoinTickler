@@ -11,7 +11,7 @@
     </div>
     <div class="tab-content-right-block m-4">
       <!-- Chart Section -->
-      <DoughNutChart :chart-data="chartData" :styles="doughnutStyle" />
+      <DoughNutChart class="chartDiv" :chart-data="chartData" :styles="doughnutStyle" />
       <!-- Results Section  -->
       <ResultBlock :result-data="results" />
     </div>

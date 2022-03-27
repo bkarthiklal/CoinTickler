@@ -2,18 +2,25 @@
   <div class="root_template">
     <div class="app-container">
       <div class="app-title-container">
-        <nuxt-link to="/" tag="h1" class="app-title">
-          Investment Calculator
-        </nuxt-link>
-        <b-form-checkbox
-          v-if="showInflationAdjuster"
-          v-model="adjustForInflation"
-          name="check-button"
-          switch
-          button-variant="warning"
-        >
-          <strong> Inflation Adjusted </strong>
-        </b-form-checkbox>
+        <div class="sidenav-div">
+        
+        </div>
+        <div class="title-container">
+          <nuxt-link to="/" tag="h1" class="app-title">
+            Investment Calculator
+          </nuxt-link>
+          <div class="inflation-switch"> 
+              <b-form-checkbox
+                v-if="showInflationAdjuster"
+                v-model="adjustForInflation"
+                name="check-button"
+                switch
+                button-variant="warning"
+              >
+                <strong> Inflation Adjusted </strong>
+              </b-form-checkbox>
+          </div>
+        </div>
       </div>
       <div class="tabs">
         <ul class="nav nav-tabs">
@@ -29,6 +36,11 @@
             </span>
           </nuxt-link>
         </ul>
+        <div id="route-name-div">
+          <strong> 
+            {{ routeName }}
+          </strong>
+        </div>
         <div class="tab-content">
           <nuxt-child :inflation-adjusted="adjustForInflation" />
         </div>
@@ -80,6 +92,11 @@ export default {
       ]
       return acceptedList.includes(name)
     },
+    routeName() {
+      const currentPath = this.$route.path;
+      const { name } = this.navRoutes.find(x => x.path === currentPath)
+      return name || ''
+    }
   },
 }
 </script>
