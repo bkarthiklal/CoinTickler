@@ -1,6 +1,5 @@
 @import '_variables';
 @import '~vue-range-slider/dist/vue-range-slider.scss';
-
 .custom-control-input:checked ~ .custom-control-label::before {
   color: rgb(0, 0, 0);
   border-color: $primary-color;
@@ -20,10 +19,21 @@
   justify-content: center;
 
   .app-container {
+    .sidenav-div {
+      display: none;
+    }
     .app-title-container {
-      display: flex;
+      display: flex !important;
       align-items: baseline;
       justify-content: space-between;
+      .title-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .inflation-switch {
+          margin: 30px 0px;
+        }
+      }
     }
     .app-title {
       color: $text-color;
@@ -40,6 +50,10 @@
       border-radius: 10px;
       font: 16px Roboto, system-ui;
       padding: 30px 0px 0px;
+
+      #route-name-div {
+        display: none;
+      }
 
       .nav-tabs {
         justify-content: space-between;
@@ -99,7 +113,6 @@
         } /*.tab-pane*/
 
         .row-block {
-          height: 90px;
           margin: 0px 0px 32px;
           .input-block {
             align-items: center;
@@ -172,6 +185,13 @@
   .root_template {
     .app-container {
       width: 90vw;
+      .sidenav-div {
+        display: block;
+        .bm-burger-button {
+          left: 0px !important;
+          top: 50px !important;
+        }
+      }
       .app-title-container {
         position: fixed;
         display: block;
@@ -179,10 +199,16 @@
         z-index: 10;
         background: white;
         width: 90vw;
-        .inflation-switch {
-          text-align: end;
+        .title-container {
+          display: block;
+          margin-left: 10vw;
+          .inflation-switch {
+            margin: 0px;
+            text-align: end;
+          }
         }
       }
+
       .tabs {
         width: 90vw;
         margin-top: 120px;
@@ -192,6 +218,7 @@
         }
         #route-name-div {
           padding: 1em;
+          display: block;
         }
         .tab-contents-block {
           display: block !important;

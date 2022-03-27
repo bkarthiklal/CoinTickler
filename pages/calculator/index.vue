@@ -3,11 +3,23 @@
     <div class="app-container">
       <div class="app-title-container">
         <div class="sidenav-div">
-        
+          <Slide>
+            <nuxt-link
+              v-for="(route, index) in navRoutes"
+              :key="index"
+              :to="route.path"
+              tag="li"
+              class="nav-item nav-link"
+            >
+              <span>
+                {{ route.name }}
+              </span>
+            </nuxt-link>
+          </Slide>
         </div>
         <div class="title-container">
           <nuxt-link to="/" tag="h1" class="app-title">
-            Investment Calculator
+            Coin Tickler
           </nuxt-link>
           <div class="inflation-switch"> 
               <b-form-checkbox
@@ -49,8 +61,12 @@
   </div>
 </template>
 <script>
+import { Slide } from 'vue-burger-menu'
 export default {
   name: 'CalculatorPage',
+  components: {
+    Slide // Register your component
+  },
   data() {
     return {
       navRoutes: [
