@@ -3,7 +3,7 @@
     <div class="app-container">
       <div class="app-title-container">
         <div class="sidenav-div">
-          <Slide>
+          <Slide :close-on-navigation="true">
             <nuxt-link
               v-for="(route, index) in navRoutes"
               :key="index"
@@ -21,16 +21,16 @@
           <nuxt-link to="/" tag="h1" class="app-title">
             Coin Tickler
           </nuxt-link>
-          <div class="inflation-switch"> 
-              <b-form-checkbox
-                v-if="showInflationAdjuster"
-                v-model="adjustForInflation"
-                name="check-button"
-                switch
-                button-variant="warning"
-              >
-                <strong> Inflation Adjusted </strong>
-              </b-form-checkbox>
+          <div class="inflation-switch">
+            <b-form-checkbox
+              v-if="showInflationAdjuster"
+              v-model="adjustForInflation"
+              name="check-button"
+              switch
+              button-variant="warning"
+            >
+              <strong> Inflation Adjusted </strong>
+            </b-form-checkbox>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
           </nuxt-link>
         </ul>
         <div id="route-name-div">
-          <strong> 
+          <strong>
             {{ routeName }}
           </strong>
         </div>
@@ -65,7 +65,7 @@ import { Slide } from 'vue-burger-menu'
 export default {
   name: 'CalculatorPage',
   components: {
-    Slide // Register your component
+    Slide, // Register your component
   },
   data() {
     return {
@@ -109,10 +109,10 @@ export default {
       return acceptedList.includes(name)
     },
     routeName() {
-      const currentPath = this.$route.path;
-      const { name } = this.navRoutes.find(x => x.path === currentPath)
+      const currentPath = this.$route.path
+      const { name } = this.navRoutes.find((x) => x.path === currentPath)
       return name || ''
-    }
+    },
   },
 }
 </script>
