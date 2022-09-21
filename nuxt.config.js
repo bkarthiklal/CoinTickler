@@ -55,14 +55,23 @@ export default {
 
   // Firebase Options : https://firebase.nuxtjs.org/guide/options
   firebase: {
+    // config: {
+    //   apiKey: 'AIzaSyAKiWRQOBVZp2hTfz_RzK2TsbeE8vxRejA',
+    //   authDomain: 'investmentcalculator-deb92.firebaseapp.com',
+    //   projectId: 'investmentcalculator-deb92',
+    //   storageBucket: 'investmentcalculator-deb92.appspot.com',
+    //   messagingSenderId: '859788277327',
+    //   appId: '1:859788277327:web:b26a7f63f72c7e64d3dc3a',
+    //   measurementId: 'G-CNWKH0ZJ21',
+    // },
     config: {
-      apiKey: 'AIzaSyAKiWRQOBVZp2hTfz_RzK2TsbeE8vxRejA',
-      authDomain: 'investmentcalculator-deb92.firebaseapp.com',
-      projectId: 'investmentcalculator-deb92',
-      storageBucket: 'investmentcalculator-deb92.appspot.com',
-      messagingSenderId: '859788277327',
-      appId: '1:859788277327:web:b26a7f63f72c7e64d3dc3a',
-      measurementId: 'G-CNWKH0ZJ21',
+      apiKey: 'AIzaSyDqLzhEgg2-AIj-mv0FW087pFVfjxhp4_4',
+      authDomain: 'cointickler.firebaseapp.com',
+      projectId: 'cointickler',
+      storageBucket: 'cointickler.appspot.com',
+      messagingSenderId: '539525145252',
+      appId: '1:539525145252:web:07c5428857178c3572bc31',
+      measurementId: 'G-Y6MJ0H3QKQ',
     },
     services: {
       analytics: true,
